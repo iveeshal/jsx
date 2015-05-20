@@ -1,19 +1,16 @@
-all: deps
+.PHONY: all compile deps clean distclean test check_plt build_plt dialyzer \
+            cleanplt
+
+all: deps compile
+
+compile: deps
+        ./rebar compile
 
 deps:
-	./rebar get-deps
-	./rebar compile
-
-app:
-	./rebar compile
-
-tests:
-	./rebar eunit
+        test -d deps || ./rebar get-deps
 
 clean:
-	./rebar clean
+        ./rebar clean
 
 distclean: clean
-	./rebar delete-deps
-
-.PHONY: all deps app tests clean distclean
+        ./rebar delete-deps

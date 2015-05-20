@@ -1,19 +1,19 @@
 all: deps
 
 deps:
-	rebar get-deps
-	rebar compile
+	./rebar get-deps
+	./rebar compile
 
 app:
-	rebar compile
+	./rebar compile
 
 tests:
-	rebar eunit
+	./rebar eunit
 
 clean:
-	rebar clean
+	./rebar clean
 
 distclean: clean
-	rebar delete-deps
+	./rebar delete-deps
 
 .PHONY: all deps app tests clean distclean

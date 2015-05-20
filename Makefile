@@ -1,19 +1,13 @@
-all: deps
+all: src
 
-deps:
-	rebar get-deps
-	rebar compile
-
-app:
-	rebar compile
-
-tests:
-	rebar eunit
+src:
+        rebar compile
 
 clean:
-	rebar clean
+        rebar clean
 
-distclean: clean
-	rebar delete-deps
+test:
+        rebar skip_deps=true eunit
 
-.PHONY: all deps app tests clean distclean
+.PHONY: clean src
+~                    
